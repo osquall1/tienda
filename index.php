@@ -1,8 +1,3 @@
-<?php 
-session_start();
- ?>
-
-
 <!DOCTYPE html>
 
 <html>
@@ -28,14 +23,7 @@ session_start();
    <button class="btn-main btn-search"><i class="fa fa-search" aria-hidden="true">  </i></button>  
 </div>
 <div class="options-place"> 
-   <?php //codigo para ocular el div cuando haya iniciado la sesion
-   if (isset($_SESSION['codusu'])){
-   echo '<div class="estilo_usuario" ><i class="fa fa-user-circle-o" aria-hidden="true"></i>'.$_SESSION['nomusu'].'</div';
    
-   }else{
-
-   
-    ?> 
   
     <div class="item-option" title="Registro"><i class="fa fa-user-circle-o" aria-hidden="true"></i> </div>
     
@@ -60,47 +48,7 @@ session_start();
        </div>
     </div>
 </div>
-<script type="text/javascript">
- $(document).ready(function(){
-    $.ajax({
-      url:'modelo/obenterProductos.php',
-      type:'POST',
-      data:{},
-      success:function(data){
-          console.log(data);
-          let html='';
-          for (var i = 0; i< data.datos.length; i++){
-            html+=
-           ' <div class="product-box">'+
-            '<a href="producto.php?p='+data.datos[i].codpro+' ">'+
-              '<div class="product">'+
-                '<img src="imagenes/'+data.datos[i].rutimapro+'" >'+
-                '<div class="detail-title">'+data.datos[i].nompro+'</div>'+
-                '<div class="detail-descripcion">'+data.datos[i].despro+'</div>'+
-                '<div class="detail-price">'+formato_precio(data.datos[i].prepro)+'</div>'+ //para separar el decimal
-              '</div>'+
-              '</a>'+
-         '</div>';  
-        }
-       document.getElementById("space_list").innerHTML=html;
 
 
-
-
-      },
-      error:function(err){
-        console.error(err);
-      }
-
-    });
-
-  });
-  function formato_precio(valor){
-   //separacion del decimal
-   let svalor=valor.toString();
-   let array=svalor.split(".");
-   return "$="+array[0]+".<span>"+array[1]+"</span>";
-  }
-</script>
     </body>
 </html>
