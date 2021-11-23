@@ -5,7 +5,7 @@
      <meta charset="utf-8">
           
         <meta name="Language" content="español">
-	  <title>Micelanea</title><!--titulo de la pagina-->
+	  <title>Papeleria</title><!--titulo de la pagina-->
 	  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Questrial&family=Quintessential&display=swap" rel="stylesheet">
