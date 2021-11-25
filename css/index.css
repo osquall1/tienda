@@ -15,7 +15,7 @@ body{
 header{
 	height: 40px;
 	padding: 10px;
-	width: calc(100% - 20px);
+	width: 100%;
 	line-height: 40px;
 	display: flex;
 	background: var(--main-header-color);
@@ -422,3 +422,40 @@ footer{
 		margin: 10px 0;
 	}
 }
+
+.borde{  border: 5px  ridge #32A7E7;
+                  background-color: #1C5B7E;
+                  width:80%;
+                  border-radius:10px;
+                  padding:5px;
+                  margin-right: 10%; margin-left: 10%;                 
+                  }  
+
+.lognui{
+	width: 150px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7px;
+}
+.lognui img{
+	width: 62%;
+    height: 94%;
+} 
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-left: -30%;
+} 
+
+.img-rounded {
+    border-radius: 6px;
+    margin-left: 39%;
+}
+
+.salid{
+	margin-left: 139%;
+}                

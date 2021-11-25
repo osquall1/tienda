@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2021 a las 22:00:57
+-- Tiempo de generación: 25-11-2021 a las 22:04:54
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -48,7 +48,7 @@ CREATE TABLE `producto` (
   `nompro` varchar(50) DEFAULT NULL,
   `despro` varchar(100) DEFAULT NULL,
   `prepro` decimal(20,3) DEFAULT NULL,
-  `estado` int(11) DEFAULT NULL,
+  `estado` int(11) DEFAULT '1',
   `rutimapro` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,7 +64,8 @@ INSERT INTO `producto` (`codpro`, `nompro`, `despro`, `prepro`, `estado`, `rutim
 (5, 'Guantes', 'Guantes para ejercicio.', '10.000', 1, 'guantes.jpg'),
 (6, 'Elasticos', 'Para ejercicios valor unidad', '50.000', 1, 'elastico.jpg'),
 (7, 'Colchoneta', 'dimensiones 1.80X60 cm', '80.000', 1, 'colchoneta.jpg'),
-(8, 'Rueda Abdominal', 'Ideal para abdominales', '45.000', 1, 'rueda.jpg');
+(8, 'Rueda Abdominal', 'Ideal para abdominales', '45.000', 1, 'rueda.jpg'),
+(10, 'Balon de Gymnasia', 'Bola para ejercitar', '75.000', 1, '995854.jpg');
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,7 @@ CREATE TABLE `usuario` (
   `nomusu` varchar(50) DEFAULT NULL,
   `apeusu` varchar(50) DEFAULT NULL,
   `emausu` varchar(50) NOT NULL,
-  `pasusu` varchar(20) NOT NULL,
+  `pasusu` varchar(150) NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -86,7 +87,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codusu`, `nomusu`, `apeusu`, `emausu`, `pasusu`, `estado`) VALUES
-(1, 'Usuario', 'Demo', 'correo@example.com', '123456', 1);
+(1, 'Usuario', 'Demo', 'correo@example.com', '123456', 1),
+(2, 'Administrador', 'cuenta administradora', 'admin@example.com', '9cbb58d88f092756c0a9fbe6051166ab6dfb7cb5ad2b5e51f70b7bfc601bb407', 1);
 
 --
 -- Índices para tablas volcadas
@@ -118,12 +120,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `codped` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codped` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `codpro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `codpro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

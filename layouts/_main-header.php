@@ -1,5 +1,5 @@
 <header>
-	<div class="logo-place"><a href="index.php"><img src="assets/logo.png"></a></div>
+	<div class="logo-place"><a href="index.php" title="volver al inicio"><img src="assets/logo.png"></a></div>
 	<div class="search-place">
 		<input type="text" id="idbusqueda" placeholder="Encuenta lo que necesitas..." value="<?php if(isset($_GET['text'])){echo $_GET['text'];}else{echo '';} ?>">
 		<button class="btn-main btn-search" onclick="search_producto()"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -11,6 +11,10 @@
 			'<div class="item-option" onclick="mostrar_opciones()"><i class="fa fa-user-circle-o" aria-hidden="true"></i><p>'.$_SESSION['nomusu'].'</p></div>';
 		}else{
 		?>
+        <div class="item-option" title="Administrador">
+			<a href="loginadmin.php"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+		</div>
+
 		<div class="item-option" title="Ingresar">
 			<a href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
 		</div>
