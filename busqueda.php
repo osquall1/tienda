@@ -16,7 +16,7 @@
 	<?php include("layouts/_main-header.php"); ?>
 	<div class="main-content">
 		<div class="content-page">
-			<div class="title-section">Productos destacados</div>
+			<div class="title-section">Resultados para <strong>"<?php echo $_GET['text']; ?>"</strong></div>
 			<div class="products-list" id="space-list">
 			</div>
 		</div>
@@ -24,11 +24,14 @@
 	<?php include("layouts/_footer.php"); ?>
 	<script type="text/javascript" src="js/main-scripts.js"></script>
 	<script type="text/javascript">
+		var text="<?php echo $_GET['text']; ?>";
 		$(document).ready(function(){
 			$.ajax({
-				url:'servicios/producto/get_all_products.php',
+				url:'servicios/producto/get_all_results.php',
 				type:'POST',
-				data:{},
+				data:{
+					text:text
+				},
 				success:function(data){
 					console.log(data);
 					let html='';
@@ -45,7 +48,11 @@
 							'</a>'+
 						'</div>';
 					}
-					document.getElementById("space-list").innerHTML=html;
+					if (html=='') {
+						document.getElementById("space-list").innerHTML="No hay resultados";
+					}else{
+						document.getElementById("space-list").innerHTML=html;
+					}
 				},
 				error:function(err){
 					console.error(err);
@@ -56,7 +63,7 @@
 			//10.99
 			let svalor=valor.toString();
 			let array=svalor.split(".");
-			return "$/ "+array[0]+".<span>"+array[1]+"</span>";
+			return "S/. "+array[0]+".<span>"+array[1]+"</span>";
 		}
 	</script>
 </body>

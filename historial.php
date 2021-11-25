@@ -16,7 +16,7 @@
 	<?php include("layouts/_main-header.php"); ?>
 	<div class="main-content">
 		<div class="content-page">
-			<div class="title-section">Productos destacados</div>
+			<div class="title-section">Mis compras realizadas</div>
 			<div class="products-list" id="space-list">
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$.ajax({
-				url:'servicios/producto/get_all_products.php',
+				url:'servicios/pedido/get_pedidos_all.php',
 				type:'POST',
 				data:{},
 				success:function(data){
@@ -34,15 +34,17 @@
 					let html='';
 					for (var i = 0; i < data.datos.length; i++) {
 						html+=
-						'<div class="product-box">'+
-							'<a href="producto.php?p='+data.datos[i].codpro+'">'+
-								'<div class="product">'+
-									'<img src="assets/products/'+data.datos[i].rutimapro+'">'+
-									'<div class="detail-title">'+data.datos[i].nompro+'</div>'+
-									'<div class="detail-description">'+data.datos[i].despro+'</div>'+
-									'<div class="detail-price">'+formato_precio(data.datos[i].prepro)+'</div>'+
-								'</div>'+
-							'</a>'+
+						'<div class="caja-detalle mb5">'+
+							'<div class="img">'+
+								'<img src="assets/products/'+data.datos[i].rutimapro+'">'+
+							'</div>'+
+							'<div class="detalle">'+
+								'<h3 class="mb5">'+data.datos[i].nompro+'</h3>'+
+								'<p class="mb5">Fecha: '+data.datos[i].fecped+'</p>'+
+								'<p class="mb5">Estado: '+data.datos[i].estadotxt+'</p>'+
+								'<p class="mb5">'+data.datos[i].despro+'</p>'+
+								'<h4 class="mb5">'+formato_precio(data.datos[i].prepro)+'</h4>'+
+							'</div>'+							
 						'</div>';
 					}
 					document.getElementById("space-list").innerHTML=html;
